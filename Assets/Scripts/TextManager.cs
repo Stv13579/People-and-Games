@@ -5,10 +5,18 @@ using UnityEngine;
 public class TextManager : MonoBehaviour
 {
     public int timer = 1000;
+
+    public string[] texts;
+
+
     public GameObject bubble;
     private GameObject currentBubble;
     private GameObject currentBubbleCanvas;
     private GameObject currentBubbleText;
+
+
+    public int score = 0;
+
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +34,9 @@ public class TextManager : MonoBehaviour
             currentBubble = Instantiate(bubble);
             currentBubbleCanvas = currentBubble.transform.GetChild(0).gameObject;
             currentBubbleText = currentBubbleCanvas.transform.GetChild(0).gameObject;
-            currentBubbleText.GetComponent<UnityEngine.UI.Text>().text = "test";
+            int index = Random.Range(0, texts.Length);
+            currentBubbleText.GetComponent<UnityEngine.UI.Text>().text = texts[index];
+
         }
     }
 }

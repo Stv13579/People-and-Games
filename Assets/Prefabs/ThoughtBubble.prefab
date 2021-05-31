@@ -91,6 +91,8 @@ GameObject:
   - component: {fileID: 8410482674263365278}
   - component: {fileID: 5183506082223092941}
   - component: {fileID: -5813724030650874345}
+  - component: {fileID: -9195473567262833876}
+
   m_Layer: 0
   m_Name: ThoughtBubble
   m_TagString: Untagged
@@ -187,6 +189,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.01
+
+  textmanager: {fileID: 0}
+
 --- !u!54 &5183506082223092941
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -199,7 +204,9 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
-  m_IsKinematic: 0
+
+  m_IsKinematic: 1
+
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -216,6 +223,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 6.1232336e-17}
   m_Center: {x: 0, y: 0, z: 0}
+
+--- !u!114 &-9195473567262833876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5671758405113026469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d574dd113f516a2459a594d43fcbb2b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  screenSpace: {x: 0, y: 0, z: 0}
+  offset: {x: 0, y: 0, z: 0}
+
 --- !u!1 &5671758406359384745
 GameObject:
   m_ObjectHideFlags: 0
