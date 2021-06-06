@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class TextManager : MonoBehaviour
 {
-    public int timer = 1000;
+    public float timer = 1000;
+    public float timerTotal;
 
     public string[] texts;
 
@@ -16,21 +17,19 @@ public class TextManager : MonoBehaviour
 
 
     public int score = 0;
-
-
-    // Start is called before the first frame update
+    
     void Start()
     {
-        
+        timer = timerTotal;
     }
 
-    // Update is called once per frame
+   
     void Update()
     {
-        timer -= 1;
+        timer -= Time.deltaTime * 10;
         if (timer <= 0)
         {
-            timer = 1000;
+            timer = timerTotal;
             currentBubble = Instantiate(bubble);
             currentBubbleCanvas = currentBubble.transform.GetChild(0).gameObject;
             currentBubbleText = currentBubbleCanvas.transform.GetChild(0).gameObject;
