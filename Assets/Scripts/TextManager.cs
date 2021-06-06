@@ -30,7 +30,7 @@ public class TextManager : MonoBehaviour
         if (timer <= 0)
         {
             timer = timerTotal;
-            currentBubble = Instantiate(bubble);
+            currentBubble = Instantiate(bubble, Camera.main.ViewportToWorldPoint(new Vector3(0.5f, -0.5f, 10.0f)), Quaternion.identity);
             currentBubbleCanvas = currentBubble.transform.GetChild(0).gameObject;
             currentBubbleText = currentBubbleCanvas.transform.GetChild(0).gameObject;
             int index = Random.Range(0, texts.Length);
