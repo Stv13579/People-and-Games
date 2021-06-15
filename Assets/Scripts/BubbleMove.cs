@@ -19,15 +19,19 @@ public class BubbleMove : MonoBehaviour
     void Start()
     {
         textmanager = FindObjectOfType<TextManager>();
+        //Randomise vertical and horizontal speeds, and movement mode
         vSpeed = Random.Range(0.05f, 0.15f);
         hSpeed = Random.Range(-0.15f, 0.3f);
         moveMode = Random.Range(1, 5);
         rendererMesh = GetComponent<MeshRenderer>();
+        this.GetComponent<Rigidbody>().WakeUp();
+
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
+        //Random movement options
         switch (moveMode)
         {
             case 1:
@@ -47,22 +51,22 @@ public class BubbleMove : MonoBehaviour
                 break;
 
         }
+        //Calculate the bottom, left, and right edges of the bubbles in screen space
         bottomPos = Camera.main.WorldToViewportPoint(new Vector3(transform.position.x, transform.position.y - (rendererMesh.bounds.size.y / 2), transform.position.z));
         rightPos = Camera.main.WorldToViewportPoint(new Vector3(transform.position.x + (rendererMesh.bounds.size.x / 2), transform.position.y, transform.position.z));
         leftPos = Camera.main.WorldToViewportPoint(new Vector3(transform.position.x - (rendererMesh.bounds.size.x / 2), transform.position.y, transform.position.z));
 
 
-        //leftPos = Camera.main.WorldToViewportPoint(transform.position);
-
+        //If the bubble is off the top of the screen, destroy it and increment anxiety counter
         if (bottomPos.y > 1.0f)
         {
             textmanager.score += 1;
             Destroy(this.gameObject);
         }
+        //Keeps the bubbles from going off the side of the screen
         if (rightPos.x > 1.0f)
         {
             this.transform.position = Camera.main.ViewportToWorldPoint(new Vector3(1.0f, rightPos.y, rightPos.z)) - new Vector3(rendererMesh.bounds.size.x / 2, 0.0f, 0.0f);
-            //this.transform.position = new Vector3(5.65f, this.transform.position.y, this.transform.position.z);
         }
         if (leftPos.x < 0.0f)
         {
@@ -70,4 +74,6 @@ public class BubbleMove : MonoBehaviour
         }
 
     }
+
 }
+

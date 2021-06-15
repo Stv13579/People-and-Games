@@ -3,11 +3,10 @@ using System.Collections;
 
 public class DragAndDrop : MonoBehaviour
 {
-    private bool _mouseState;
+    public bool _mouseState;
     private GameObject target;
     public Vector3 screenSpace;
     public Vector3 offset;
-
     void Start()
     {
 
@@ -53,10 +52,8 @@ public class DragAndDrop : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray.origin, ray.direction * 10, out hit))
         {
-            if ( hit.collider.gameObject.tag == "Draggable")
-            {
                 target = hit.collider.gameObject;
-            }            
+         
         }
         return target;
     }
