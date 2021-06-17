@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TextManager : MonoBehaviour
 {
-    public float timer = 1000;
+    public float timer;
     public float timerTotal;
 
     public string[] texts;
