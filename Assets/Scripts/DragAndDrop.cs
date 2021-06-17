@@ -3,18 +3,16 @@ using System.Collections;
 
 public class DragAndDrop : MonoBehaviour
 {
-    private bool _mouseState;
+    public bool _mouseState;
     private GameObject target;
     public Vector3 screenSpace;
     public Vector3 offset;
-
-    // Use this for initialization
     void Start()
     {
 
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         // Debug.Log(_mouseState);
@@ -54,9 +52,9 @@ public class DragAndDrop : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray.origin, ray.direction * 10, out hit))
         {
-            target = hit.collider.gameObject;
+                target = hit.collider.gameObject;
+         
         }
-
         return target;
     }
 }
