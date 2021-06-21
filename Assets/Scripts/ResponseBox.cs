@@ -20,22 +20,17 @@ public class ResponseBox : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         //If the colliding object is an anxiety thought and is currently being held
-<<<<<<< Updated upstream
-        if ((other.gameObject.tag == "Anxiety" || other.gameObject.tag == "WrongAnswer") && other.gameObject.GetComponent<DragAndDrop>()._mouseState)
-=======
-        if (other.gameObject.tag == "Anxiety" && other.gameObject.GetComponent<DragAndDrop>()._mouseState && other.gameObject.GetComponent<DragAndDrop>().target == other.gameObject)
->>>>>>> Stashed changes
+
+        if ((other.gameObject.tag == "Anxiety" || other.gameObject.tag == "WrongAnswer") && other.gameObject.GetComponent<DragAndDrop>()._mouseState && other.gameObject.GetComponent<DragAndDrop>().target == other.gameObject)
         {
             other.gameObject.GetComponent<DragAndDrop>()._mouseState = false;
             interviewer.GetComponent<InterviewerScript>().score -= 1;
-<<<<<<< Updated upstream
+
             //Shouldn't destroy since the question is unanswered?
             //Destroy(this.gameObject);
-=======
+
             Destroy(other.gameObject);
 
-            Destroy(this.gameObject);
->>>>>>> Stashed changes
         }
     }
 
