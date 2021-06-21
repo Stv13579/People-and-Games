@@ -4,7 +4,7 @@ using System.Collections;
 public class DragAndDrop : MonoBehaviour
 {
     public bool _mouseState;
-    private GameObject target;
+    public GameObject target;
     public Vector3 screenSpace;
     public Vector3 offset;
     void Start()
