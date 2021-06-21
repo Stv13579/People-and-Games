@@ -5,11 +5,14 @@ using UnityEngine;
 public class InterviewerScript : MonoBehaviour
 {
     public GameObject ResponseBox;
-    private GameObject question;
+    [HideInInspector] public GameObject question;
     private GameObject questionCanvas;
     private GameObject questionText;
     public string[] questions;
-    private int counter = 0;
+    //Should correspond to the question (i.e answers[0] fits with questions[0])
+    public string[] answers;
+    public string[] falseAnswers;
+    [HideInInspector] public int counter = 0;
     public int score = 0;
     // Start is called before the first frame update
     void Start()

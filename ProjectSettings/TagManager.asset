@@ -8,6 +8,8 @@ TagManager:
   - Anxiety
   - Good Thought
   - Bad Thought
+  - Answer
+  - WrongAnswer
   layers:
   - Default
   - TransparentFX
