@@ -60,7 +60,7 @@ public class TextManager : MonoBehaviour
         timer = timerTotal;
         currentBubble = Instantiate(bubble, Camera.main.ViewportToWorldPoint(new Vector3(0.5f, -0.5f, 10.0f)), Quaternion.identity); //Spawning using screen space so they always spawn below the screen and rise up
         currentBubbleCanvas = currentBubble.transform.GetChild(0).gameObject;
-        currentBubbleText = currentBubbleCanvas.transform.GetChild(0).gameObject;
+        currentBubbleText = currentBubbleCanvas.transform.GetChild(1).gameObject;
         int index = Random.Range(0, texts.Length);
         currentBubbleText.GetComponent<UnityEngine.UI.Text>().text = texts[index];
         currentBubble.tag = "Anxiety";
@@ -70,7 +70,7 @@ public class TextManager : MonoBehaviour
         timer = timerTotal;
         currentBubble = Instantiate(bubble, Camera.main.ViewportToWorldPoint(new Vector3(0.5f, -0.5f, 10.0f)), Quaternion.identity); //Spawning using screen space so they always spawn below the screen and rise up
         currentBubbleCanvas = currentBubble.transform.GetChild(0).gameObject;
-        currentBubbleText = currentBubbleCanvas.transform.GetChild(0).gameObject;
+        currentBubbleText = currentBubbleCanvas.transform.GetChild(1).gameObject;
 
         currentBubbleText.GetComponent<UnityEngine.UI.Text>().text = interviewer.GetComponent<InterviewerScript>().answers[interviewer.GetComponent<InterviewerScript>().counter - 1];
         currentBubble.tag = "Answer";
@@ -80,7 +80,7 @@ public class TextManager : MonoBehaviour
         timer = timerTotal;
         currentBubble = Instantiate(bubble, Camera.main.ViewportToWorldPoint(new Vector3(0.5f, -0.5f, 10.0f)), Quaternion.identity); //Spawning using screen space so they always spawn below the screen and rise up
         currentBubbleCanvas = currentBubble.transform.GetChild(0).gameObject;
-        currentBubbleText = currentBubbleCanvas.transform.GetChild(0).gameObject;
+        currentBubbleText = currentBubbleCanvas.transform.GetChild(1).gameObject;
         int index = Random.Range(0, interviewer.GetComponent<InterviewerScript>().falseAnswers.Length);
         currentBubbleText.GetComponent<UnityEngine.UI.Text>().text = interviewer.GetComponent<InterviewerScript>().falseAnswers[index];
         currentBubble.tag = "WrongAnswer";

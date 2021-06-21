@@ -284,7 +284,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 628873749}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: MrCeo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -409,7 +409,7 @@ GameObject:
   m_Component:
   - component: {fileID: 857377037}
   - component: {fileID: 857377036}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: MrCeo_Expression_Neutral
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -639,7 +639,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1656527604}
   - component: {fileID: 1656527603}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: MrCeo_Arm0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
