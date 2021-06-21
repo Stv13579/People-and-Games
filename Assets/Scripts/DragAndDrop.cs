@@ -32,7 +32,7 @@ public class DragAndDrop : MonoBehaviour
         {
             _mouseState = false;
         }
-        if (_mouseState)
+        if (_mouseState && target)
         {
             //keep track of the mouse position
             var curScreenSpace = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenSpace.z);
