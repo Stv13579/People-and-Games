@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1370760809134098669}
   - component: {fileID: 2164031667755048559}
   - component: {fileID: 3123359981847196348}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Bubble Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,7 +27,7 @@ RectTransform:
   m_GameObject: {fileID: 5455324797988829111}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.001, y: 0.001, z: 0}
+  m_LocalScale: {x: 0.01, y: 0.01, z: 0}
   m_Children: []
   m_Father: {fileID: 5671758405057556073}
   m_RootOrder: 0
@@ -35,7 +35,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1100, y: 1900}
+  m_SizeDelta: {x: 363, y: 203}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2164031667755048559
 CanvasRenderer:
@@ -64,7 +64,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1cc71b043583a6f4fbef34282f1a0724, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d1dac9e8a3b4a0e429c3b46854214f4c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -85,7 +85,7 @@ GameObject:
   - component: {fileID: 5671758405057556073}
   - component: {fileID: 5671758405057556075}
   - component: {fileID: 5671758405057556072}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -166,7 +166,7 @@ GameObject:
   - component: {fileID: 5183506082223092941}
   - component: {fileID: -5813724030650874345}
   - component: {fileID: -9195473567262833876}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ThoughtBubble
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -248,6 +248,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveMode: 0
+  bubbles:
+  - {fileID: 21300000, guid: 3ede66868ef8ddb4bb901d2c232c3cd8, type: 3}
+  - {fileID: 21300000, guid: 7c93d9e1f51b1f946b0a8ae753b52225, type: 3}
+  - {fileID: 21300000, guid: d1dac9e8a3b4a0e429c3b46854214f4c, type: 3}
+  - {fileID: 21300000, guid: 2385a4b81a9b8ad4097d35991913469c, type: 3}
   textmanager: {fileID: 0}
 --- !u!54 &5183506082223092941
 Rigidbody:
@@ -291,6 +296,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mouseState: 0
+  target: {fileID: 0}
   screenSpace: {x: 0, y: 0, z: 0}
   offset: {x: 0, y: 0, z: 0}
 --- !u!1 &5671758406359384745
@@ -304,7 +310,7 @@ GameObject:
   - component: {fileID: 5671758406359384744}
   - component: {fileID: 5671758406359384746}
   - component: {fileID: 5671758406359384747}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -359,10 +365,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 16
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 1
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0

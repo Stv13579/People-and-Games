@@ -15,13 +15,13 @@ public class DragAndDrop : MonoBehaviour
 
     void Update()
     {
-        // Debug.Log(_mouseState);
+        
         if (Input.GetMouseButtonDown(0))
         {
 
             RaycastHit hitInfo;
             target = GetClickedObject(out hitInfo);
-            if (target != null)
+            if ((target != null) && (target.layer == 9))
             {
                 _mouseState = true;
                 screenSpace = Camera.main.WorldToScreenPoint(target.transform.position);

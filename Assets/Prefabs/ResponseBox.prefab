@@ -201,6 +201,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interviewer: {fileID: 0}
+  txtManage: {fileID: 0}
 --- !u!1 &7300771308257916027
 GameObject:
   m_ObjectHideFlags: 0

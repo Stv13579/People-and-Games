@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.PostProcessing;
 
 public class TextManager : MonoBehaviour
 {
@@ -16,15 +17,19 @@ public class TextManager : MonoBehaviour
     private GameObject currentBubbleText;
 
     public GameObject interviewer;
+    public GameObject mainCamera;
+    private PostProcessVolume volume;
 
-    public int score = 0;
-    
+    public float score = 0;
+    public float maxAnx = 50;
     void Start()
     {
         timer = timerTotal;
+        volume = mainCamera.GetComponent<PostProcessVolume>();
+
     }
 
-   
+    
     void Update()
     {
         timer -= Time.deltaTime * 10;
@@ -53,6 +58,18 @@ public class TextManager : MonoBehaviour
                 makeBadThought();
             }
         }
+
+        //set Post Processing based on anxiety levels
+
+        float param = score / maxAnx;
+        param = param > 1 ? 1 : param;
+        Vignette vg;
+        volume.profile.TryGetSettings<Vignette>(out vg);
+        vg.intensity.value = param;
+        ChromaticAberration chrom;
+        volume.profile.TryGetSettings<ChromaticAberration>(out chrom);
+        chrom.intensity.value = param;
+
     }
 
     void makeBadThought()
