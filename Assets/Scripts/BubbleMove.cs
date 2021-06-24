@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BubbleMove : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class BubbleMove : MonoBehaviour
 
     Renderer rendererMesh;
 
+    public Sprite[] bubbles;
+    private float spriteSwitchTime;
 
     public TextManager textmanager;
     // Start is called before the first frame update
@@ -31,6 +34,15 @@ public class BubbleMove : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        spriteSwitchTime -= Time.deltaTime;
+        if (spriteSwitchTime <= 0)
+        {
+            this.transform.GetChild(0).GetChild(0).GetComponent<Image>().sprite = bubbles[Random.Range(0, bubbles.Length)];
+            spriteSwitchTime = 0.1f;
+        }
+       
+
+
         //Random movement options
         switch (moveMode)
         {

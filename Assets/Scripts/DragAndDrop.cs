@@ -4,7 +4,7 @@ using System.Collections;
 public class DragAndDrop : MonoBehaviour
 {
     public bool _mouseState;
-    private GameObject target;
+    public GameObject target;
     public Vector3 screenSpace;
     public Vector3 offset;
     void Start()
@@ -15,13 +15,13 @@ public class DragAndDrop : MonoBehaviour
 
     void Update()
     {
-        // Debug.Log(_mouseState);
+        
         if (Input.GetMouseButtonDown(0))
         {
 
             RaycastHit hitInfo;
             target = GetClickedObject(out hitInfo);
-            if (target != null)
+            if ((target != null) && (target.layer == 9))
             {
                 _mouseState = true;
                 screenSpace = Camera.main.WorldToScreenPoint(target.transform.position);
@@ -32,7 +32,7 @@ public class DragAndDrop : MonoBehaviour
         {
             _mouseState = false;
         }
-        if (_mouseState)
+        if (_mouseState && target)
         {
             //keep track of the mouse position
             var curScreenSpace = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenSpace.z);
