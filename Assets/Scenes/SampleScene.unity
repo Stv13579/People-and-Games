@@ -2985,7 +2985,7 @@ MonoBehaviour:
   interviewer: {fileID: 193277245}
   mainCamera: {fileID: 963194225}
   score: 0
-  maxAnx: 10
+  maxAnx: 50
 --- !u!1001 &2460924584131586682
 PrefabInstance:
   m_ObjectHideFlags: 0
