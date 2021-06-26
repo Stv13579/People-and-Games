@@ -6,17 +6,15 @@ public class ResponseBox : MonoBehaviour
 {
     public GameObject interviewer;
     public GameObject txtManage;
-    // Start is called before the first frame update
+    public AudioClip badNoise;
+    public AudioClip goodNoise;
+
+
     void Start()
     {
         interviewer = GameObject.Find("MrCeo");
         txtManage = GameObject.Find("Text Manager");
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        
     }
 
     private void OnTriggerEnter(Collider other)
@@ -33,9 +31,11 @@ public class ResponseBox : MonoBehaviour
             //Wrong answer = more anxiety
             txtManage.GetComponent<TextManager>().score += 1;
 
-            Destroy(other.gameObject);
-           
+            AudioSource.PlayClipAtPoint(badNoise, this.transform.position);
 
+            
+
+            Destroy(other.gameObject);          
         }
 
         //If the colliding dragged object is a correct answer
@@ -45,6 +45,8 @@ public class ResponseBox : MonoBehaviour
         {
             other.gameObject.GetComponent<DragAndDrop>()._mouseState = false;
             interviewer.GetComponent<InterviewerScript>().score += 1;
+
+            AudioSource.PlayClipAtPoint(goodNoise, this.transform.position);
 
             Destroy(other.gameObject);
 

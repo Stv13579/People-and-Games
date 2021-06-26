@@ -287,6 +287,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interviewer: {fileID: 0}
   txtManage: {fileID: 0}
+  badNoise: {fileID: 8300000, guid: 4a7027ae32abf644ab3ca32c28e30deb, type: 3}
+  goodNoise: {fileID: 8300000, guid: 4a7027ae32abf644ab3ca32c28e30deb, type: 3}
 --- !u!212 &6580119135536227003
 SpriteRenderer:
   m_ObjectHideFlags: 0

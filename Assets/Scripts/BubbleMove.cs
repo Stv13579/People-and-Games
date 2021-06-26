@@ -12,6 +12,7 @@ public class BubbleMove : MonoBehaviour
     public float MaxHorizontalSpeed;
     public float MinHorizontalSpeed;
     public int moveMode;
+    Vector3 middlePos;
     Vector3 leftPos;
     Vector3 rightPos;
     Vector3 bottomPos;
@@ -68,6 +69,7 @@ public class BubbleMove : MonoBehaviour
 
         }
         //Calculate the bottom, left, and right edges of the bubbles in screen space
+        middlePos = Camera.main.WorldToViewportPoint(new Vector3(transform.position.x, transform.position.y, transform.position.z));
         bottomPos = Camera.main.WorldToViewportPoint(new Vector3(transform.position.x, transform.position.y - (rendererMesh.bounds.size.y / 2), transform.position.z));
         rightPos = Camera.main.WorldToViewportPoint(new Vector3(transform.position.x + (rendererMesh.bounds.size.x / 2), transform.position.y, transform.position.z));
         leftPos = Camera.main.WorldToViewportPoint(new Vector3(transform.position.x - (rendererMesh.bounds.size.x / 2), transform.position.y, transform.position.z));
@@ -87,6 +89,11 @@ public class BubbleMove : MonoBehaviour
         if (leftPos.x < 0.0f)
         {
             this.transform.position = Camera.main.ViewportToWorldPoint(new Vector3(0.0f, leftPos.y, leftPos.z)) + new Vector3(rendererMesh.bounds.size.x / 2, 0.0f, 0.0f);
+        }
+        //If the bubble is dragged to the bottom of the screen 
+        if (middlePos.y < 0.0f && GetComponent<DragAndDrop>()._mouseState)
+        {
+            Destroy(this.gameObject);
         }
 
     }
