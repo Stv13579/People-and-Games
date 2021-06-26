@@ -34,7 +34,7 @@ public class InterviewerScript : MonoBehaviour
     void Start()
     {
         //Instantiate question box, add question to box. Same mechanism as thought bubbles
-        question = Instantiate(ResponseBox, Camera.main.ViewportToWorldPoint(new Vector3(0.35f, 0.5f, 10.0f)), Quaternion.identity); //Spawning using screen space
+        question = Instantiate(ResponseBox, Camera.main.ViewportToWorldPoint(new Vector3(0.25f, 0.25f, 10.0f)), Quaternion.identity); //Spawning using screen space
         questionCanvas = question.transform.GetChild(0).gameObject;
         questionText = questionCanvas.transform.GetChild(0).gameObject;
         questionText.GetComponent<TextMeshProUGUI>().text = questions[counter];
@@ -56,7 +56,7 @@ public class InterviewerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(score);
+        
         if (question == null)
         {
             if (counter > questions.Length - 1)
@@ -64,13 +64,17 @@ public class InterviewerScript : MonoBehaviour
                 gameManage.GetComponent<GameManager>().gameOver = true;
                 
             }
-            //New question box if old one is answered
-            question = Instantiate(ResponseBox, Camera.main.ViewportToWorldPoint(new Vector3(0.35f, 0.5f, 10.0f)), Quaternion.identity); //Spawning using screen space so they always spawn below the screen and rise up
-            questionCanvas = question.transform.GetChild(0).gameObject;
-            questionText = questionCanvas.transform.GetChild(0).gameObject;
-            questionText.GetComponent<TextMeshProUGUI>().text = questions[counter];
-            counter += 1;
-            askingQuestion = true;
+            else
+            {
+                //New question box if old one is answered
+                question = Instantiate(ResponseBox, Camera.main.ViewportToWorldPoint(new Vector3(0.25f, 0.25f, 10.0f)), Quaternion.identity); //Spawning using screen space so they always spawn below the screen and rise up
+                questionCanvas = question.transform.GetChild(0).gameObject;
+                questionText = questionCanvas.transform.GetChild(0).gameObject;
+                questionText.GetComponent<TextMeshProUGUI>().text = questions[counter];
+                counter += 1;
+                askingQuestion = true;
+            }
+           
         }
         if (askingQuestion)
         {
