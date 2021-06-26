@@ -28,16 +28,27 @@ public class ResponseBox : MonoBehaviour
             
 
             other.gameObject.GetComponent<DragAndDrop>()._mouseState = false;
-            interviewer.GetComponent<InterviewerScript>().score += 1;
+            interviewer.GetComponent<InterviewerScript>().score -= 1;
            
             //Wrong answer = more anxiety
             txtManage.GetComponent<TextManager>().score += 1;
 
-            //Shouldn't destroy since the question is unanswered?
-            //Destroy(this.gameObject);
             Destroy(other.gameObject);
            
 
+        }
+
+        //If the colliding dragged object is a correct answer
+
+
+        if (other.gameObject.tag == "Answer" && other.gameObject.GetComponent<DragAndDrop>()._mouseState && other.gameObject.GetComponent<DragAndDrop>().target == other.gameObject)
+        {
+            other.gameObject.GetComponent<DragAndDrop>()._mouseState = false;
+            interviewer.GetComponent<InterviewerScript>().score += 1;
+
+            Destroy(other.gameObject);
+
+            Destroy(this.gameObject);
         }
     }
 

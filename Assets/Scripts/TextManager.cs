@@ -20,6 +20,8 @@ public class TextManager : MonoBehaviour
     public GameObject mainCamera;
     private PostProcessVolume volume;
 
+    public GameObject gameManage;
+
     public float score = 0;
     public float maxAnx = 50;
     void Start()
@@ -32,32 +34,36 @@ public class TextManager : MonoBehaviour
     
     void Update()
     {
-        timer -= Time.deltaTime * 10;
-        if (timer <= 0)
+        if (gameManage.GetComponent<GameManager>().gameStart == true)
         {
-            //If there is a question to be answered spawn answers and false answers
-            if (interviewer.GetComponent<InterviewerScript>().questions.Length > 0)
+            timer -= Time.deltaTime * 10;
+            if (timer <= 0)
             {
-                int choice = Random.Range(0, 10);
-                if (choice == 0)
+                //If there is a question to be answered spawn answers and false answers
+                if (interviewer.GetComponent<InterviewerScript>().questions.Length > 0)
                 {
-                    makeAnswer();
+                    int choice = Random.Range(0, 10);
+                    if (choice == 0)
+                    {
+                        makeAnswer();
+                    }
+                    if (choice > 0 && choice < 6)
+                    {
+                        makeBadAnswer();
+                    }
+                    if (choice > 5)
+                    {
+                        makeBadThought();
+                    }
                 }
-                if (choice > 0 && choice < 6)
-                {
-                    makeBadAnswer();
-                }
-                if (choice > 5)
+                //Otherwise just spawn bad thoughts
+                else
                 {
                     makeBadThought();
                 }
             }
-            //Otherwise just spawn bad thoughts
-            else
-            {
-                makeBadThought();
-            }
         }
+       
 
         //set Post Processing based on anxiety levels
 
