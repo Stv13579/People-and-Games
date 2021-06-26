@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
+using TMPro;
 
 public class TextManager : MonoBehaviour
 {
@@ -85,7 +86,7 @@ public class TextManager : MonoBehaviour
         currentBubbleCanvas = currentBubble.transform.GetChild(0).gameObject;
         currentBubbleText = currentBubbleCanvas.transform.GetChild(1).gameObject;
         int index = Random.Range(0, texts.Length);
-        currentBubbleText.GetComponent<UnityEngine.UI.Text>().text = texts[index];
+        currentBubbleText.GetComponent<TextMeshProUGUI>().text = texts[index];
         currentBubble.tag = "Anxiety";
     }
     void makeAnswer()
@@ -95,7 +96,7 @@ public class TextManager : MonoBehaviour
         currentBubbleCanvas = currentBubble.transform.GetChild(0).gameObject;
         currentBubbleText = currentBubbleCanvas.transform.GetChild(1).gameObject;
 
-        currentBubbleText.GetComponent<UnityEngine.UI.Text>().text = interviewer.GetComponent<InterviewerScript>().answers[interviewer.GetComponent<InterviewerScript>().counter - 1];
+        currentBubbleText.GetComponent<TextMeshProUGUI>().text = interviewer.GetComponent<InterviewerScript>().answers[interviewer.GetComponent<InterviewerScript>().counter - 1];
         currentBubble.tag = "Answer";
     }
     void makeBadAnswer()
@@ -105,7 +106,7 @@ public class TextManager : MonoBehaviour
         currentBubbleCanvas = currentBubble.transform.GetChild(0).gameObject;
         currentBubbleText = currentBubbleCanvas.transform.GetChild(1).gameObject;
         int index = Random.Range(0, interviewer.GetComponent<InterviewerScript>().falseAnswers.Length);
-        currentBubbleText.GetComponent<UnityEngine.UI.Text>().text = interviewer.GetComponent<InterviewerScript>().falseAnswers[index];
+        currentBubbleText.GetComponent<TextMeshProUGUI>().text = interviewer.GetComponent<InterviewerScript>().falseAnswers[index];
         currentBubble.tag = "WrongAnswer";
     }
 }

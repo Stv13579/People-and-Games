@@ -7,6 +7,10 @@ public class BubbleMove : MonoBehaviour
 {
     private float vSpeed;
     private float hSpeed;
+    public float MaxVerticalSpeed;
+    public float MinVerticalSpeed;
+    public float MaxHorizontalSpeed;
+    public float MinHorizontalSpeed;
     public int moveMode;
     Vector3 leftPos;
     Vector3 rightPos;
@@ -23,8 +27,8 @@ public class BubbleMove : MonoBehaviour
     {
         textmanager = FindObjectOfType<TextManager>();
         //Randomise vertical and horizontal speeds, and movement mode
-        vSpeed = Random.Range(0.05f, 0.15f);
-        hSpeed = Random.Range(-0.15f, 0.3f);
+        vSpeed = Random.Range(MinVerticalSpeed, MaxVerticalSpeed);
+        hSpeed = Random.Range(MinHorizontalSpeed, MaxHorizontalSpeed);
         moveMode = Random.Range(1, 5);
         rendererMesh = GetComponent<MeshRenderer>();
         this.GetComponent<Rigidbody>().WakeUp();
@@ -47,19 +51,19 @@ public class BubbleMove : MonoBehaviour
         switch (moveMode)
         {
             case 1:
-                this.transform.position = new Vector3(this.transform.position.x + (hSpeed * Mathf.Cos(Time.time)), this.transform.position.y + vSpeed, this.transform.position.z);
+                this.transform.position = new Vector3(this.transform.position.x + (hSpeed * Mathf.Cos(Time.time) * Time.deltaTime), this.transform.position.y + (vSpeed * Time.deltaTime), this.transform.position.z);
                 break;
             case 2:
-                this.transform.position = new Vector3(this.transform.position.x + (hSpeed * Mathf.Sin(Time.time)), this.transform.position.y + vSpeed, this.transform.position.z);
+                this.transform.position = new Vector3(this.transform.position.x + (hSpeed * Mathf.Sin(Time.time) * Time.deltaTime), this.transform.position.y + (vSpeed * Time.deltaTime), this.transform.position.z);
                 break;
             case 3:
-                this.transform.position = new Vector3(this.transform.position.x + (-hSpeed * Mathf.Cos(Time.time)), this.transform.position.y + vSpeed, this.transform.position.z);
+                this.transform.position = new Vector3(this.transform.position.x + (-hSpeed * Mathf.Cos(Time.time) * Time.deltaTime), this.transform.position.y + (vSpeed * Time.deltaTime), this.transform.position.z);
                 break;
             case 4:
-                this.transform.position = new Vector3(this.transform.position.x + (-hSpeed * Mathf.Sin(Time.time)), this.transform.position.y + vSpeed, this.transform.position.z);
+                this.transform.position = new Vector3(this.transform.position.x + (-hSpeed * Mathf.Sin(Time.time) * Time.deltaTime), this.transform.position.y + (vSpeed * Time.deltaTime), this.transform.position.z);
                 break;
             default:
-                this.transform.position = new Vector3(this.transform.position.x + (hSpeed * Mathf.Cos(Time.time)), this.transform.position.y + vSpeed, this.transform.position.z);
+                this.transform.position = new Vector3(this.transform.position.x + (hSpeed * Mathf.Cos(Time.time) * Time.deltaTime), this.transform.position.y + vSpeed * Time.deltaTime, this.transform.position.z);
                 break;
 
         }
