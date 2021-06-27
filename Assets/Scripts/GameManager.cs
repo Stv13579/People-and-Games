@@ -55,6 +55,7 @@ public class GameManager : MonoBehaviour
             if(MoveTextAlong(postTextPrompts))
             {
                 //change scene
+                GameObject.Find("AnxTracker").GetComponent<TextManager>().score = GameObject.Find("Text Manager").GetComponent<TextManager>().score;
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             }
         }
