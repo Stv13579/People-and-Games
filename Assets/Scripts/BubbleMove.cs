@@ -22,6 +22,8 @@ public class BubbleMove : MonoBehaviour
     public Sprite[] bubbles;
     private float spriteSwitchTime;
 
+    bool destroyable = false;
+
     public TextManager textmanager;
     // Start is called before the first frame update
     void Start()
@@ -74,7 +76,10 @@ public class BubbleMove : MonoBehaviour
         rightPos = Camera.main.WorldToViewportPoint(new Vector3(transform.position.x + (rendererMesh.bounds.size.x / 2), transform.position.y, transform.position.z));
         leftPos = Camera.main.WorldToViewportPoint(new Vector3(transform.position.x - (rendererMesh.bounds.size.x / 2), transform.position.y, transform.position.z));
 
-
+        if (bottomPos.y > 0.0f)
+        {
+            this.destroyable = true;
+        }
         //If the bubble is off the top of the screen, destroy it and increment anxiety counter
         if (bottomPos.y > 1.0f)
         {
@@ -91,7 +96,7 @@ public class BubbleMove : MonoBehaviour
             this.transform.position = Camera.main.ViewportToWorldPoint(new Vector3(0.0f, leftPos.y, leftPos.z)) + new Vector3(rendererMesh.bounds.size.x / 2, 0.0f, 0.0f);
         }
         //If the bubble is dragged to the bottom of the screen 
-        if (middlePos.y < 0.0f && GetComponent<DragAndDrop>()._mouseState)
+        if (middlePos.y < 0.0f && GetComponent<DragAndDrop>()._mouseState && destroyable)
         {
             Destroy(this.gameObject);
         }
