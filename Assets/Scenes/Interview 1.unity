@@ -2149,6 +2149,11 @@ PrefabInstance:
       objectReference: {fileID: 543748407}
     - target: {fileID: 4054464829018423865, guid: abeaf3d997b3d104b83d127dea8bbf00,
         type: 3}
+      propertyPath: timerTotal
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4054464829018423865, guid: abeaf3d997b3d104b83d127dea8bbf00,
+        type: 3}
       propertyPath: interviewer
       value: 
       objectReference: {fileID: 366017788}

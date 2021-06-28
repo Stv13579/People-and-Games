@@ -39,7 +39,28 @@ public class TextManager : MonoBehaviour
     {
         if (gameManage.GetComponent<GameManager>().gameStart == true)
         {
-            timer -= Time.deltaTime * 10;
+            float mod = 1;
+            if (score > 10)
+            {
+                mod = 1.1f;
+            }
+            if (score > 20)
+            {
+                mod = 1.2f;
+            }
+            if (score > 30)
+            {
+                mod = 1.3f;
+            }
+            if (score > 40)
+            {
+                mod = 1.4f;
+            }
+            if (score > 50)
+            {
+                mod = 1.5f;
+            }
+            timer -= Time.deltaTime * 10 * mod;
             if (timer <= 0)
             {
                 //If there is a question to be answered spawn answers and false answers
