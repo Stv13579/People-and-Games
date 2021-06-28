@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
     
     void Update()
     {
-        if (Input.GetKeyDown("space") && !gameStart)
+        if (Input.GetKeyDown("space") && !gameStart && !gameEnding && !fadingOut)
         {
             fadingIn = MoveTextAlong(textPrompts);
         }
@@ -52,10 +52,11 @@ public class GameManager : MonoBehaviour
 
         if (Input.GetKeyDown("space") && gameEnding)
         {
-            if(MoveTextAlong(postTextPrompts))
+            bool changeScene = MoveTextAlong(postTextPrompts);
+            if (changeScene)
             {
                 //change scene
-                GameObject.Find("AnxTracker").GetComponent<TextManager>().score = GameObject.Find("Text Manager").GetComponent<TextManager>().score;
+                GameObject.Find("AnxTracker").GetComponent<AnxTrack>().anx = GameObject.Find("Text Manager").GetComponent<TextManager>().score;
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             }
         }

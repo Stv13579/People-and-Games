@@ -593,7 +593,7 @@ PrefabInstance:
     - target: {fileID: 2460924583680389229, guid: b63196df9a340034f94eb138c82164b9,
         type: 3}
       propertyPath: questions.Array.data[1]
-      value: Excellent, just a few small questions, is that okay?
+      value: 'Excellent, just a few small questions, is that okay? '
       objectReference: {fileID: 0}
     - target: {fileID: 2460924583680389229, guid: b63196df9a340034f94eb138c82164b9,
         type: 3}
@@ -2889,7 +2889,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 381decb106198214894aab848bb76621, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0
+  m_Volume: 0.05
   m_Pitch: 1
   Loop: 1
   Mute: 0

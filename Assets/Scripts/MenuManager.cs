@@ -7,17 +7,7 @@ public class MenuManager : MonoBehaviour
 {
     public GameObject initScreen; 
     public GameObject howToPlayScreen; 
-    void Start()
-    {
-        
-    }
-
     
-    void Update()
-    {
-        
-    }
-
     public void howToPlay()
     {
         initScreen.SetActive(false);

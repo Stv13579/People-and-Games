@@ -62,7 +62,7 @@ public class InterviewerScript : MonoBehaviour
             if (counter > questions.Length - 1)
             {
                 gameManage.GetComponent<GameManager>().gameOver = true;
-                
+                Destroy(this);
             }
             else
             {
