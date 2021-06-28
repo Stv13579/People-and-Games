@@ -25,6 +25,8 @@ public class TextManager : MonoBehaviour
 
     public float score = 0;
     public float maxAnx = 50;
+
+    
     void Start()
     {
         timer = timerTotal;
