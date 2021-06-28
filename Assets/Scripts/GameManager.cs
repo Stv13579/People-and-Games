@@ -86,7 +86,7 @@ public class GameManager : MonoBehaviour
 
     void FadeIn()
     {
-        Color tmp = transform.GetChild(0).GetComponent<SpriteRenderer>().color;
+        Color tmp = transform.GetChild(0).GetComponent<RawImage>().color;
         tmp.a -= fadeVar * Time.deltaTime;
         if( tmp.a <= 0)
         {
@@ -94,13 +94,13 @@ public class GameManager : MonoBehaviour
             fadingIn = false;
             gameStart = true;
         }
-        transform.GetChild(0).GetComponent<SpriteRenderer>().color = tmp;
+        transform.GetChild(0).GetComponent<RawImage>().color = tmp;
         
     }
 
     void FadeOut()
     {
-        Color tmp = transform.GetChild(0).GetComponent<SpriteRenderer>().color;
+        Color tmp = transform.GetChild(0).GetComponent<RawImage>().color;
         tmp.a += fadeVar * Time.deltaTime * 0.1f;
         if (tmp.a >= 1)
         {
@@ -108,6 +108,6 @@ public class GameManager : MonoBehaviour
             fadingOut = false;
             gameEnding = true;
         }
-        transform.GetChild(0).GetComponent<SpriteRenderer>().color = tmp;
+        transform.GetChild(0).GetComponent<RawImage>().color = tmp;
     }
 }
